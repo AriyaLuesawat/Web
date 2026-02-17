@@ -1,0 +1,208 @@
+/* ==============================
+   1. การตั้งค่าเริ่มต้น & สีพื้นหลัง
+   ============================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f6f4eb; /* สีพื้นหลังครีม/เบจ ตามภาพ */
+    color: #333;
+}
+
+/* ==============================
+   2. Navbar (แถบเมนูด้านบน)
+   ============================== */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 4%;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 25px;
+    font-weight: bold;
+    font-size: 14px;
+    color: #444;
+}
+
+.hamburger {
+    display: none;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+/* กล่องคุมเนื้อหาตรงกลาง */
+.container {
+    padding: 0 4%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* ==============================
+   3. Hero Section (รูปภาพที่มีตัวหนังสือทับ)
+   ============================== */
+.hero {
+    position: relative; /* สำคัญ! ให้กล่องแม่เป็นฐาน */
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.hero-img {
+    width: 100%;
+    height: 450px;
+    object-fit: cover; /* ตัดรูปให้เต็มกรอบพอดี */
+    border-radius: 20px;
+    display: block;
+}
+
+/* กล่องข้อความที่ลอยอยู่บนรูป */
+.hero-text {
+    position: absolute; /* สำคัญ! ทำให้ลอยอิสระเหนือรูป */
+    top: 15%;           /* ดันลงมาจากขอบบน */
+    left: 5%;           /* ดันจากขอบซ้าย */
+    max-width: 450px;
+    padding: 20px;
+}
+
+.subtitle {
+    color: #9c7300; /* สีทอง/น้ำตาล */
+    font-weight: 800;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.hero h1 {
+    font-size: 46px;
+    color: #333;
+    margin-bottom: 15px;
+    line-height: 1.1;
+}
+
+.desc {
+    color: #444;
+    line-height: 1.6;
+    margin-bottom: 25px;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.btn {
+    background-color: #5c5552;
+    color: white;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 25px;
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+/* ==============================
+   4. Services Tab (แถบเมนูบริการ)
+   ============================== */
+.services {
+    display: flex;
+    border-top: 1px solid #dcd7c9;
+    border-bottom: 1px solid #dcd7c9;
+    margin-bottom: 30px;
+}
+
+.service-item {
+    flex: 1;
+    text-align: center;
+    padding: 15px 0;
+    font-weight: 800;
+    font-size: 13px;
+    color: #444;
+}
+
+/* ==============================
+   5. Gallery (ระบบ Grid จัดเรียงรูป)
+   ============================== */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* คอมพิวเตอร์โชว์ 4 คอลัมน์ */
+    gap: 15px;
+    margin-bottom: 40px;
+}
+
+.gallery img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+/* ==============================
+   6. Footer (ส่วนท้ายเว็บ)
+   ============================== */
+footer {
+    text-align: center;
+    padding: 40px 4%;
+    border-top: 1px solid #dcd7c9;
+}
+
+footer h3 {
+    font-size: 18px;
+    color: #444;
+    margin-bottom: 10px;
+}
+
+footer p {
+    color: #555;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.copyright {
+    font-weight: 800;
+    color: #444;
+}
+
+/* ==============================
+   7. Responsive สำหรับ Mobile (หน้าจอเล็กกว่า 768px)
+   ============================== */
+@media (max-width: 600px) {
+    .nav-links { display: none; } /* ซ่อนเมนูตัวหนังสือ */
+    .hamburger { display: block; } /* โชว์ขีดสามขีด */
+
+    .hero-img { height: 500px; } /* ปรับรูปให้สูงขึ้นเพื่อรับกับตัวหนังสือ */
+    
+    .hero-text {
+        top: 10%;
+        left: 5%;
+        max-width: 85%; /* ให้ข้อความกว้างขึ้นในมือถือ */
+        padding: 10px;
+    }
+
+    .hero h1 { font-size: 36px; }
+
+    .hide-mobile { display: none; } /* ซ่อน SERVICE 3 ตามภาพต้นฉบับ */
+
+    .gallery {
+        grid-template-columns: repeat(2, 1fr); /* มือถือโชว์แถวละ 2 คอลัมน์ */
+        gap: 10px;
+    }
+
+    .gallery img { height: 200px; }
+
+    footer {
+    text-align: left;
+    padding: 40px 4%;
+    border-top: 1px solid #dcd7c9;
+}
+}
