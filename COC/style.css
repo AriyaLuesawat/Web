@@ -79,7 +79,7 @@ body {
 }
 
 .subtitle {
-    color: #9c7300; /* สีทอง/น้ำตาล */
+    color: #333; /* สีทอง/น้ำตาล */
     font-weight: 800;
     font-size: 16px;
     margin-bottom: 5px;
