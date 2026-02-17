@@ -1,0 +1,143 @@
+/* 1. ล้างค่าเดิมและตั้งค่าหน้าจอ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    width: 100vw;       /* กว้างเต็มจอ */
+    height: 100vh;      /* สูงเต็มจอ */
+    background-color: white;
+    padding: 0.5vmin;   /* ขอบขาวรอบหน้าจอเล็กน้อย */
+    overflow: hidden;   /* ห้ามมี Scrollbar เลื่อนขึ้นลง */
+}
+
+/* 2. การจัดวางตาราง (Grid Layout) */
+.container {
+    display: grid;
+    width: 100%;
+    height: 100%;
+    gap: 0.5vmin; /* ช่องว่างระหว่างกล่อง */
+    
+    /* แบ่งคอลัมน์: ซ้ายกว้าง (2.3 ส่วน) | ขวาแคบ (1 ส่วน) */
+    grid-template-columns: 2.3fr 1fr;
+    
+    /* แบ่งแถวทางขวา: เป็น 4 ชั้นเท่าๆ กัน */
+    grid-template-rows: repeat(4, 1fr);
+}
+
+/* สไตล์พื้นฐานของทุกกล่อง */
+.box {
+    position: relative; /* ให้ของข้างในอ้างอิงตำแหน่งจากกล่องนี้ */
+    background-color: #333;
+    background-size: cover;      /* รูปเต็มกล่อง */
+    background-position: center; /* รูปอยู่กลาง */
+    overflow: hidden;            /* ส่วนเกินตัดทิ้ง */
+}
+
+/* 3. กล่องใหญ่ทางซ้าย (Hero Box) */
+.hero {
+    grid-column: 1 / 2; /* กินพื้นที่คอลัมน์แรก */
+    grid-row: 1 / 5;    /* ยาวลงมาตั้งแต่แถว 1 ถึง 4 */
+    
+    background-image: url('https://images.unsplash.com/photo-1694875546238-67cb3596adf1?q=80&w=1336&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+    
+    /* จัดของข้างใน (โลโก้, ปุ่ม) */
+    display: flex;
+    flex-direction: column;         /* เรียงแนวตั้ง */
+    justify-content: space-between; /* ดันของไปชิดขอบบนและล่าง */
+    align-items: center;            /* จัดกึ่งกลางซ้าย-ขวา */
+    
+    /* ระยะห่างขอบใน (บน ขวา ล่าง ซ้าย) */
+    padding: 8vh 2vw 10vh 2vw;
+}
+
+/* 4. โลโก้ IKEA */
+.logo {
+    color: #FFDA1A; /* สีเหลือง */
+    font-family: 'Arial Black', sans-serif;
+    font-size: 13vw; /* ขนาดตัวอักษร (ปรับตามความกว้างจอ) */
+    line-height: 0.8;
+    letter-spacing: -0.8vw; /* บีบตัวหนังสือให้ชิด */
+    transform: scaleX(1.6);
+}
+
+/* เครื่องหมาย ® เล็กๆ */
+.tm {
+    font-size: 2vw;
+    vertical-align: top;
+    position: relative;
+    top: 1vw;
+    letter-spacing: normal;
+}
+
+/* 5. ลูกศร (แบบรูปภาพ) */
+.arrow-img {
+    position: absolute; /* ลอยอิสระ */
+    z-index: 10;        /* อยู่ชั้นบนสุด */
+    
+    /* --- [ตำแหน่ง] แก้เลขตรงนี้เพื่อย้ายที่ --- */
+    top: 82.5%;  /* ระยะจากด้านบน */
+    left: 38.5%; /* ระยะจากด้านซ้าย */
+    
+    /* --- [ขนาด] แก้เลขตรงนี้เพื่อ ย่อ/ขยาย --- */
+    width: 2vmin; /* ยิ่งเลขน้อย ลูกศรยิ่งเล็ก (เช่น 2vmin, 3vmin) */
+    
+    height: auto; /* สูงอัตโนมัติตามสัดส่วน */
+    filter: drop-shadow(0 0 5px rgba(0,0,0,0.5)); /* เงา */
+}
+
+/* 6. กลุ่มเนื้อหาด้านล่าง (ข้อความ + ปุ่ม) */
+.bottom-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.text {
+    color: white;
+    font-weight: bold;
+    font-size: 2.5vmin; /* ขนาดตัวหนังสือ */
+    margin-bottom: 2vh; /* เว้นห่างจากปุ่ม */
+    text-shadow: 1px 1px 2px black;
+}
+
+/* ปุ่มแคปซูล */
+.btn {
+    display: inline-flex;
+    border-radius: 50px; /* ขอบมน */
+    overflow: hidden;
+    font-weight: bold;
+    font-size: 2vmin;
+    text-decoration: none;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+}
+
+.btn-yellow {
+    background-color: #FFDA1A;
+    color: white;
+    padding: 1.5vmin 3vmin 1vmin; /* ขนาดความอ้วนของปุ่ม */
+    text-shadow: 1px 1px 2px black;
+}
+
+.btn-transparent {
+    background-color: rgba(255, 218, 26, 0.6); /* สีโปร่งแสง */
+    color: white;
+    padding: 1.5vmin 15vmin 1.5vmin 3vmin;
+    backdrop-filter: blur(5px);
+    text-shadow: 1px 1px 2px black;
+}
+
+/* 7. ป้ายข้อความของกล่องเล็ก */
+.label {
+    color: white;
+    font-weight: bold;
+    font-size: 2vmin;
+    text-shadow: 1px 1px 2px black;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
