@@ -1,0 +1,188 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: #f6f4eb;
+    
+}
+
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 4%;
+}
+
+.logo{
+  font-size: 50px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.navlink {
+    display: flex;
+    gap: 40px;
+    font-weight: bold;
+    font-size: 14px;
+    color: #444;
+    align-items: center;
+}
+
+.right-menu {
+    display: flex;
+    align-items: center;
+    gap: 15px; }
+
+.hamburger {
+    display: none;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+.btn{
+    cursor: pointer;
+    color: white;
+    background: rgb(139, 86, 17);
+    padding: 12px 30px;
+    border: none;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    transform: translateY(-3px); 
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+.btn:active {
+    transform: translateY(1px); /* กดแล้วยุบลงมา */
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2); /* เงาหดเล็กลง */
+}
+
+.hero {
+    position: relative; /* สำคัญ! ให้กล่องแม่เป็นฐาน */
+    width: 92%;
+    margin-bottom: 20px;
+    margin: 0 auto;
+}
+
+.hero-text{
+    color: #f6f4eb;
+    
+}
+
+.hero-img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover; /* ตัดรูปให้เต็มกรอบพอดี */
+    border-radius: 20px;
+    display: block;
+}
+
+/* กล่องข้อความที่ลอยอยู่บนรูป */
+.hero-text {
+    position: absolute; /* สำคัญ! ทำให้ลอยอิสระเหนือรูป */
+    top: 15%;           /* ดันลงมาจากขอบบน */
+    left: 5%;           /* ดันจากขอบซ้าย */
+    max-width: 450px;
+    padding: 20px;
+}
+
+.service{
+   display: flex; 
+   justify-content: space-around;
+   border-top: 1px solid #000000;
+   border-bottom: 1px solid #000000;;
+   padding: 15px 0;
+   
+   margin-bottom: 30px;
+   width: 92%;
+   margin: 0 auto 30px auto;
+}
+
+.service-item{
+    font-weight: 800;
+    color: #444;
+    cursor: pointer;
+}
+
+.gallery{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    width: 92%;
+    margin: 0 auto 50px auto;
+}
+
+.gallery img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 15px;
+    cursor: pointer;
+
+}
+
+.gallery img:hover {
+    transform: translateY(-3px); 
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+.gallery img:active {
+    transform: translateY(1px); /* กดแล้วยุบลงมา */
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2); /* เงาหดเล็กลง */
+}
+
+footer {
+    text-align: center;
+    padding: 40px 20px;
+    border-top: 1px solid #dcd7c9;
+    color: #555;
+}
+
+footer h3 {
+    margin-bottom: 10px;
+    color: #333;
+}
+
+footer p {
+    font-size: 14px;
+    margin-bottom: 10px;
+    max-width: 600px;
+    margin: 0 auto 10px auto; /* จัดให้อยู่กึ่งกลาง */
+}
+
+.copyright {
+    font-weight: 800;
+}
+
+@media (max-width: 600px){
+    .hamburger {
+    display: block;
+    font-size: 28px;
+    cursor: pointer;
+    }
+
+    .navlink {
+    display: none;
+    }
+
+    .hide-mobile{
+        display: none;
+    }
+
+    .gallery{
+        grid-template-columns: repeat(2,1fr);
+        gap 10px;
+    }
+
+    .gallery img {
+        height: 200px; /* ลดความสูงของรูปบนมือถือ */
+    }
+}
